@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkd3ks37goh5u"]
+
+[ext_resource type="Script" path="res://scenes/game_list_scene.gd" id="1_65jn6"]
+[ext_resource type="Texture2D" uid="uid://bag43a1cot83d" path="res://assets/HOVERED.png" id="2_gjgvx"]
+[ext_resource type="Texture2D" uid="uid://bcfiuiordq07l" path="res://assets/DEFAULT.png" id="2_qhgdy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mkyfg"]
+texture = ExtResource("2_qhgdy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_034ow"]
+texture = ExtResource("2_gjgvx")
+
+[node name="GameListScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_65jn6")
+
+[node name="SelectGameLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 40.0
+offset_right = 704.0
+offset_bottom = 104.0
+theme_override_font_sizes/font_size = 28
+text = "Catálogo de juegos"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 128.0
+offset_right = 354.0
+offset_bottom = 536.0
+metadata/_edit_group_ = true
+
+[node name="VGamesContainer" type="VBoxContainer" parent="ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="GameInfo" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 384.0
+offset_top = 392.0
+offset_right = 896.0
+offset_bottom = 536.0
+autowrap_mode = 3
+metadata/_edit_group_ = true
+
+[node name="GameImg" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 384.0
+offset_top = 128.0
+offset_right = 832.0
+offset_bottom = 384.0
+metadata/_edit_group_ = true
+
+[node name="BackToMainMenu" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 896.0
+offset_top = 24.0
+offset_right = 1092.0
+offset_bottom = 64.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_mkyfg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_034ow")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_034ow")
+theme_override_styles/focus = SubResource("StyleBoxTexture_034ow")
+text = "Volver al menú principal"
+
+[node name="CloseSession" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 896.0
+offset_top = 72.0
+offset_right = 1092.0
+offset_bottom = 112.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_mkyfg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_034ow")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_034ow")
+theme_override_styles/focus = SubResource("StyleBoxTexture_034ow")
+text = "Cerrar sesion"
+
+[connection signal="pressed" from="BackToMainMenu" to="." method="_on_back_to_main_menu_pressed"]
+[connection signal="pressed" from="CloseSession" to="." method="_on_close_session_pressed"]

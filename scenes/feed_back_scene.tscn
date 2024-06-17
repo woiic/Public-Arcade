@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbsd5cbnxldhf"]
+
+[ext_resource type="Script" path="res://scenes/feed_back_scene.gd" id="1_wso84"]
+[ext_resource type="Texture2D" uid="uid://b20gq6upvbphf" path="res://assets/Big.png" id="2_4c0oe"]
+[ext_resource type="Texture2D" uid="uid://bcfiuiordq07l" path="res://assets/DEFAULT.png" id="3_1fl83"]
+[ext_resource type="Texture2D" uid="uid://bag43a1cot83d" path="res://assets/HOVERED.png" id="4_eairg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mkyfg"]
+texture = ExtResource("3_1fl83")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_034ow"]
+texture = ExtResource("4_eairg")
+
+[node name="FeedBack" type="Node2D"]
+script = ExtResource("1_wso84")
+
+[node name="BackGround" type="TextureRect" parent="."]
+offset_left = -456.0
+offset_top = -432.0
+offset_right = 1408.0
+offset_bottom = 888.0
+texture = ExtResource("2_4c0oe")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 656.0
+offset_bottom = 336.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 64.0
+offset_right = 320.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 40
+text = "FEEDBACK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 96.0
+offset_right = 352.0
+offset_bottom = 119.0
+text = "Cuentanos, ¿Qué te pareció el juego?"
+
+[node name="TextEdit" type="TextEdit" parent="Control"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 128.0
+offset_right = 448.0
+offset_bottom = 320.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+
+[node name="Enter" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 272.0
+offset_right = 624.0
+offset_bottom = 320.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_mkyfg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_034ow")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_034ow")
+theme_override_styles/focus = SubResource("StyleBoxTexture_034ow")
+text = "Enviar"
+
+[node name="Cerrar" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 128.0
+offset_right = 624.0
+offset_bottom = 176.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_mkyfg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_034ow")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_034ow")
+theme_override_styles/focus = SubResource("StyleBoxTexture_034ow")
+text = "Salir"
+
+[connection signal="pressed" from="Control/Enter" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Cerrar" to="." method="_on_cerrar_pressed"]

@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvg6ylywm40ph"]
+
+[ext_resource type="Script" path="res://scenes/MainScene.gd" id="1_67b63"]
+[ext_resource type="PackedScene" uid="uid://ci0ctxs50qlgu" path="res://scenes/game_list_scene.tscn" id="2_eqp0s"]
+[ext_resource type="PackedScene" uid="uid://m4exk6srpf7f" path="res://scenes/pause_menu.tscn" id="3_a3q5w"]
+[ext_resource type="PackedScene" uid="uid://b5f2nbt70fkr1" path="res://scenes/game_overlay.tscn" id="4_3gwn0"]
+[ext_resource type="PackedScene" uid="uid://ci6ca6y4wrvh3" path="res://scenes/session_handler.tscn" id="5_rm566"]
+
+[node name="MainScene" type="CanvasLayer"]
+script = ExtResource("1_67b63")
+
+[node name="Title" type="Label" parent="."]
+offset_left = 432.0
+offset_top = 184.0
+offset_right = 720.0
+offset_bottom = 256.0
+theme_override_font_sizes/font_size = 50
+text = "Main Scene"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Title"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 200.0
+offset_right = 248.0
+offset_bottom = 266.0
+theme_override_font_sizes/font_size = 42
+text = "Continue"
+icon_alignment = 1
+
+[node name="SessionsButton" type="Button" parent="Title"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 112.0
+offset_right = 264.0
+offset_bottom = 170.0
+theme_override_font_sizes/font_size = 36
+text = "Iniciar Sesion"
+icon_alignment = 1
+
+[node name="GameListScene" parent="." instance=ExtResource("2_eqp0s")]
+metadata/_edit_lock_ = true
+
+[node name="pause_container" parent="." instance=ExtResource("3_a3q5w")]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_lock_ = true
+
+[node name="GameOverlay" parent="." instance=ExtResource("4_3gwn0")]
+metadata/_edit_lock_ = true
+
+[node name="SessionHandler" parent="." instance=ExtResource("5_rm566")]
+metadata/_edit_lock_ = true
+
+[node name="Debug" type="Label" parent="."]
+offset_left = 832.0
+offset_top = 544.0
+offset_right = 872.0
+offset_bottom = 567.0
+
+[node name="DebugButton" type="Button" parent="."]
+offset_left = 936.0
+offset_top = 424.0
+offset_right = 1032.0
+offset_bottom = 512.0
+text = "DEBUG"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[connection signal="pressed" from="Title/Button" to="." method="_btn_going_to_games"]
+[connection signal="pressed" from="Title/SessionsButton" to="." method="_on_sessions_button_pressed"]
+[connection signal="game_selected" from="GameListScene" to="." method="_on_game_list_scene_game_selected"]
+[connection signal="return_mm" from="pause_container" to="." method="_on_pause_container_return_mm"]
+[connection signal="endpoint_response" from="SessionHandler" to="." method="_on_session_handler_endpoint_response"]
+[connection signal="guest_session" from="SessionHandler" to="." method="_on_guest_session"]
+[connection signal="on_player_session" from="SessionHandler" to="." method="_on_player_session"]
+[connection signal="pressed" from="DebugButton" to="." method="_on_debug_button_pressed"]

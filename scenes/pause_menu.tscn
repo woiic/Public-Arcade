@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfnbkw1ybivle"]
+
+[ext_resource type="Script" path="res://scenes/pause_menu.gd" id="1_o5lac"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_35ig6"]
+
+[node name="pause_container" type="Control"]
+material = SubResource("ShaderMaterial_35ig6")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o5lac")
+
+[node name="main_menu_bttn" type="Button" parent="."]
+layout_mode = 1
+offset_left = 512.0
+offset_top = 200.0
+offset_right = 640.0
+offset_bottom = 240.0
+text = "Game Selector"
+metadata/_edit_group_ = true
+
+[node name="continue_bttn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 280.0
+offset_right = 640.0
+offset_bottom = 320.0
+text = "Continue"
+metadata/_edit_group_ = true
+
+[node name="pause_title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 32.0
+offset_right = 720.0
+offset_bottom = 104.0
+theme_override_font_sizes/font_size = 50
+text = "Pause Menu"
+horizontal_alignment = 1
+metadata/_edit_group_ = true
+
+[connection signal="pressed" from="main_menu_bttn" to="." method="_on_main_menu_bttn_pressed"]

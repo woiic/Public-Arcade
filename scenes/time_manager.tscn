@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dha7xnhw5kleo"]
+
+[ext_resource type="Script" path="res://scenes/TimeManager.gd" id="1_5kls6"]
+
+[node name="TimeManager" type="Node2D"]
+script = ExtResource("1_5kls6")
+
+[node name="debug_session_timer" type="Label" parent="."]
+offset_top = 104.0
+offset_right = 40.0
+offset_bottom = 127.0
+
+[node name="debug_game_timer" type="Label" parent="."]
+offset_top = 128.0
+offset_right = 40.0
+offset_bottom = 151.0
