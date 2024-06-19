@@ -193,7 +193,8 @@ func OpenLeaderBoard(table_data): ## (folder_direction):
 	return
 
 
-func _on_back_to_main_menu() -> void:
+
+func _on_back_to_main_menu_button_pressed() -> void:
 	back_to_menu.emit()
 	# TODO LEADERBOARD mejorar esto a una tabla de verdad, lo más probable es que con una nueva escena
 	LeaderBoardsTable.text = ""

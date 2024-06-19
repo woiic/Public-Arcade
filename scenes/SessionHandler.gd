@@ -19,7 +19,7 @@ var besperandoRespuesta : bool = false
 
 
 @onready var main_label: Label = $MainLabel
-@onready var guest_button: Button = $GuestButton
+@onready var guest_button: Label = $GuestButton
 @onready var simular_tarjeta: Button = $SimularTarjeta
 
 @onready var name_input: LineEdit = $LineEdit
@@ -38,8 +38,8 @@ var besperandoRespuesta : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#ActualSessionState = SessionState.WaitingCard
-	name_input.hide()
-	enter_guest_button.hide()
+	#name_input.hide()
+	#enter_guest_button.hide()
 	esperando_respuesta.hide()
 	pass # Replace with function body.
 
@@ -55,12 +55,12 @@ func _process(delta):
 func send_id_to_endpoint(CardId):
 	# Aca se tiene que enviar la info del Id del usuario al endpoint
 	return
-
-func _on_guest_entering() -> void:
-	guest_button.hide()
-	name_input.show()
-	enter_guest_button.show()
-	pass # Replace with function body.
+#
+#func _on_guest_entering() -> void:
+	#guest_button.hide()
+	#name_input.show()
+	#enter_guest_button.show()
+	#pass # Replace with function body.
 
 
 func _on_enter_guest() -> void:

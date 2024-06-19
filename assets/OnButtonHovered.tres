@@ -1,0 +1,6 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bewp26fntl6yf"]
+
+[ext_resource type="Texture2D" uid="uid://cvpwmy555p3id" path="res://assets/sober_hovered.png" id="1_osinq"]
+
+[resource]
+texture = ExtResource("1_osinq")

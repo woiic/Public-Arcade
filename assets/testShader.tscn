@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccoqq52smdqu1"]
+
+[ext_resource type="Material" uid="uid://p5715h8ojx3b" path="res://assets/new_shader_material.tres" id="1_7g0wa"]
+[ext_resource type="Texture2D" uid="uid://8bdc8mh7dv5f" path="res://icon.svg" id="2_jq4bq"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+material = ExtResource("1_7g0wa")
+layout_mode = 0
+offset_left = 344.0
+offset_top = 152.0
+offset_right = 656.0
+offset_bottom = 184.0
+text = "Al pocho le gusta la que cuelga"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = ExtResource("1_7g0wa")
+layout_mode = 0
+offset_left = 72.0
+offset_top = 240.0
+offset_right = 912.0
+offset_bottom = 552.0
+texture = ExtResource("2_jq4bq")

@@ -10,6 +10,8 @@ OnLeaderBoards,
 
 var ActualState;
 var PreviousState;
+
+@onready var back_ground: TextureRect = $BackGround
 @onready var title = $Title
 @onready var titleButton = $Title/Button
 @onready var sessions_button: Button = $Title/SessionsButton
@@ -62,6 +64,7 @@ var gamePath : String = ""
 
 #var simultaneous_scene = preload("res://scenes/game_selector_scene.tscn").instantiate()
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	ActualState = State.Idle
@@ -74,6 +77,7 @@ func _ready():
 	session_handler.hide()
 	leader_boards_scene.hide()
 	close_session.hide()
+	back_ground.show()
 	title.show()
 	feed_back.hide()
 	leader_boards_popup.hide()
@@ -82,8 +86,8 @@ func _ready():
 	#this_PlayerData = Global.PlayerData.new(0, "loiic", "link/to/image", "FCFM")
 	P1_PlayerData = Global.PlayerData.new(0, "", "", "")
 	get_parent().get_child(0).MainScene = self
+	# Configurar el texto del Label
 	
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	match ActualState:
@@ -102,11 +106,13 @@ func _process(delta):
 					close_session.show()
 					sessions_button.hide()
 				title.show()
+				back_ground.show()
 			debug.text = "Idle State"
 		State.WaitingSession:
 			# First change state actions
 			if PreviousState != ActualState:
 				profile.show()
+				back_ground.hide()
 				title.hide()
 				game_list_scene.hide()
 				session_handler.show()
@@ -118,6 +124,7 @@ func _process(delta):
 		State.ChossingGame:
 			if PreviousState != ActualState:
 				profile.show()
+				back_ground.hide()
 				title.hide()
 				game_list_scene.show()
 				session_handler.hide()
@@ -150,6 +157,7 @@ func _process(delta):
 			if PreviousState != ActualState:
 				profile.show()
 				title.hide()
+				back_ground.hide()
 				game_list_scene.hide()
 				session_handler.hide()
 				leader_boards_scene.show()
@@ -159,6 +167,7 @@ func _process(delta):
 	######################## --- DEBUG --- ########################
 	session_debug.text = P1_PlayerData._to_string()
 	return
+
 
 # :------------------------------ State Machine functions -----------------------------: #
 

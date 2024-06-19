@@ -1,14 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkd3ks37goh5u"]
+[gd_scene load_steps=5 format=3 uid="uid://bkd3ks37goh5u"]
 
 [ext_resource type="Script" path="res://scenes/game_list_scene.gd" id="1_65jn6"]
-[ext_resource type="Texture2D" uid="uid://bag43a1cot83d" path="res://assets/HOVERED.png" id="2_gjgvx"]
-[ext_resource type="Texture2D" uid="uid://bcfiuiordq07l" path="res://assets/DEFAULT.png" id="2_qhgdy"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mkyfg"]
-texture = ExtResource("2_qhgdy")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_034ow"]
-texture = ExtResource("2_gjgvx")
+[ext_resource type="Texture2D" uid="uid://b20gq6upvbphf" path="res://assets/Big.png" id="2_1sklw"]
+[ext_resource type="StyleBox" uid="uid://dyco6u4al2ulf" path="res://assets/OnButtonDefault.tres" id="3_lyssd"]
+[ext_resource type="StyleBox" uid="uid://bewp26fntl6yf" path="res://assets/OnButtonHovered.tres" id="4_ykjbp"]
 
 [node name="GameListScene" type="Control"]
 layout_mode = 3
@@ -19,12 +14,19 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_65jn6")
 
+[node name="BackGround" type="TextureRect" parent="."]
+offset_left = -256.0
+offset_top = -384.0
+offset_right = 2024.0
+offset_bottom = 904.0
+texture = ExtResource("2_1sklw")
+
 [node name="SelectGameLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 448.0
-offset_top = 40.0
+offset_top = 48.0
 offset_right = 704.0
-offset_bottom = 104.0
+offset_bottom = 112.0
 theme_override_font_sizes/font_size = 28
 text = "Catálogo de juegos"
 horizontal_alignment = 1
@@ -32,9 +34,9 @@ vertical_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
-offset_left = 128.0
+offset_left = 48.0
 offset_top = 128.0
-offset_right = 354.0
+offset_right = 274.0
 offset_bottom = 536.0
 metadata/_edit_group_ = true
 
@@ -45,46 +47,47 @@ layout_mode = 2
 [node name="GameInfo" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 384.0
-offset_top = 392.0
-offset_right = 896.0
-offset_bottom = 536.0
+offset_left = 448.0
+offset_top = 448.0
+offset_right = 960.0
+offset_bottom = 592.0
 autowrap_mode = 3
+clip_text = true
 metadata/_edit_group_ = true
 
 [node name="GameImg" type="TextureRect" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 384.0
+offset_left = 448.0
 offset_top = 128.0
-offset_right = 832.0
-offset_bottom = 384.0
+offset_right = 1024.0
+offset_bottom = 448.0
 metadata/_edit_group_ = true
 
 [node name="BackToMainMenu" type="Button" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 896.0
+offset_left = 24.0
 offset_top = 24.0
-offset_right = 1092.0
+offset_right = 220.0
 offset_bottom = 64.0
-theme_override_styles/normal = SubResource("StyleBoxTexture_mkyfg")
-theme_override_styles/hover = SubResource("StyleBoxTexture_034ow")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_034ow")
-theme_override_styles/focus = SubResource("StyleBoxTexture_034ow")
+theme_override_styles/normal = ExtResource("3_lyssd")
+theme_override_styles/hover = ExtResource("4_ykjbp")
+theme_override_styles/pressed = ExtResource("4_ykjbp")
+theme_override_styles/focus = ExtResource("4_ykjbp")
 text = "Volver al menú principal"
 
 [node name="CloseSession" type="Button" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 896.0
-offset_top = 72.0
-offset_right = 1092.0
-offset_bottom = 112.0
-theme_override_styles/normal = SubResource("StyleBoxTexture_mkyfg")
-theme_override_styles/hover = SubResource("StyleBoxTexture_034ow")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_034ow")
-theme_override_styles/focus = SubResource("StyleBoxTexture_034ow")
+offset_left = 24.0
+offset_top = 584.0
+offset_right = 220.0
+offset_bottom = 624.0
+theme_override_styles/normal = ExtResource("3_lyssd")
+theme_override_styles/hover = ExtResource("4_ykjbp")
+theme_override_styles/pressed = ExtResource("4_ykjbp")
+theme_override_styles/focus = ExtResource("4_ykjbp")
 text = "Cerrar sesion"
 
 [connection signal="pressed" from="BackToMainMenu" to="." method="_on_back_to_main_menu_pressed"]
