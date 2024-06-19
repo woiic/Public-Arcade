@@ -1,4 +1,4 @@
-# Proyecto de memoria Arcade 
+# Manual de uso y desarrollo del Arcade
 
 ## Instalación
 
@@ -16,9 +16,9 @@ En caso de probarlo desde el proyecto, es necesario repetir este proceso, pero d
 El juego debe ser añadido en formato .zip, para esto debes entrar a tu proyecto y exportarlo para windows.
 ![image](https://github.com/woiic/Arcade/assets/40223167/af63c8aa-9035-4e81-95a7-8a8d06658ea0)
 
-Además del archivo PCK, es necesario añadir 3 archivos más que deben llamarse como viene señalado.
+Además del archivo .ZIP, es necesario añadir 3 archivos más que deben llamarse como viene señalado.
 Un archivo de texto, llamado `resumen.txt` que contenga un pequeño resumen que describa el contenido de tu juego, para luego ser mostrado dentro del selector de juegos de la aplicación.
-Una imagen llamada `imagen.png` que muestre visualmente el juego.
+Una imagen llamada `imagen.png` que sirva de guía visual para saber de que trata el juego.
 Un archivo json, llamado `info.json` que contenga (de momento) una sola clave con el correo de los desarrolladores para luego enviar la retroalimentación de los usuarios. `{"email":"tu_correo@electronico.com"}`
 
 ## Desarrollo
@@ -58,6 +58,25 @@ Dentro de Global, los métodos accesibles son:
 La aplicación tiene algunas limitaciones desde el punto de vista del desarrollo.
 
 1. No es posible utilizar autoload, a menos que se añadan directamente dentro de los autoloads del proyecto.
-2. No es posible utilizar la función `change_scene()`, ya que esto elimina la escena Main de la aplicación.
+2. No es posible utilizar la función `change_scene()`, ya que esto elimina la escena Main de la aplicación, por lo que tienes que hacer una escena main que gestione el cambio de escenas.
 3. De forma local no se puede acceder a datos de usuario de la Universidad, debido a que es necesario utilizar una cuenta autorizada, pero se puede utilizar el sistema de "guests" o invitados para hacer pruebas.
+4. Para los inputs hay algunas entradas añadidas como se ven en la imagen , pero para utilizar más entradas es necesario añadirlas directamente dentro del proyecto, es por esto que es mejor rescatar directamente los eventos de teclas utilizadas desde el juego.
+![image](https://github.com/woiic/Public-Arcade/assets/40223167/ee2ce21d-057a-4e73-aba1-b7d6e20d6fb8)
+   Pero el escape esta reservado para cerrar los juegos (sin cerrar la aplicacion) en debugeo.
+
+## Uso del Arcade
+
+Una vez ejecutada la aplicación, dentro de la carpeta `games` aparecerán algunos archivos que gestionan la información del juego. Estos archivos se generarán automáticamente si falta alguno. Para acceder a los juegos, es necesario iniciar sesión primero. Para ello, debes presionar el botón `iniciar sesión` o el botón `continuar`, lo cual te redirigirá a la escena de inicio de sesión, donde deberás ingresar como invitado para poder realizar pruebas.
+
+Menú principal
+![image](https://github.com/woiic/Public-Arcade/assets/40223167/132bc5e7-8894-47b0-b5ce-fef1781751a1)
+Escena de inicio de sesión
+![image](https://github.com/woiic/Public-Arcade/assets/40223167/e92bb459-8e33-4b24-bb50-2a3c5b6bcfe0)
+Escena de Selector de juegos
+![image](https://github.com/woiic/Public-Arcade/assets/40223167/6932b961-01c1-48a1-817b-8eb9c10b4ba6)
+
+
+
+
+
 
