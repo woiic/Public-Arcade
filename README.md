@@ -45,6 +45,7 @@ func getPD():
   return
 ```
 Dentro de Global, los métodos accesibles son:
+
 `Global.get_PlayerData()`: Devuelve un objeto PlayerData que contiene la información del usuario. NO SE DEBE MODIFICAR.
 
 `Global.game_over(score : int)`: Recibe un valor "score", que contiene el puntaje obtenido por el usuario de turno.
