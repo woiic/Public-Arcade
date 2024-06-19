@@ -59,5 +59,5 @@ La aplicación tiene algunas limitaciones desde el punto de vista del desarrollo
 
 1. No es posible utilizar autoload, a menos que se añadan directamente dentro de los autoloads del proyecto.
 2. No es posible utilizar la función `change_scene()`, ya que esto elimina la escena Main de la aplicación.
-
+3. De forma local no se puede acceder a datos de usuario de la Universidad, debido a que es necesario utilizar una cuenta autorizada, pero se puede utilizar el sistema de "guests" o invitados para hacer pruebas.
 
