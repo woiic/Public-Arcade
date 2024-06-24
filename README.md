@@ -46,13 +46,19 @@ func getPD():
 ```
 Dentro de Global, los métodos accesibles son:
 
-`Global.get_PlayerData()`: Devuelve un objeto PlayerData que contiene la información del usuario. NO SE DEBE MODIFICAR.
+`Global.get_PlayerData() -> PlayerData `: Devuelve un objeto PlayerData que contiene la información del usuario. NO SE DEBE MODIFICAR.
 
-`Global.game_over(score : int)`: Recibe un valor "score", que contiene el puntaje obtenido por el usuario de turno.
+`Global.game_over(score : int) -> void`: Recibe un valor "score", que contiene el puntaje obtenido por el usuario de turno.
 
-`Global.showLeaderBoard()`: Se muestra al usuario una escena con los puntajes y nombres de los usuarios dentro del juego, es posible que no funcione durante una pausa (TO TEST).
+`Global.showLeaderBoard() -> void`: Se crea una nueva escena que se muestra por encima del juego, es un listado donde los usuarios pueden ver los puntajes obtenidos anteriormente en el juego, es posible que no funcione durante una pausa (TO TEST).
 
-`Global.closeGame()`: Se cierra el juego y se vuelve al selector de juegos cerrando la aplicación.
+`Global.hideLeaderBoard() -> void`: Fuerza el cerrado de la escena de feedback.
+
+`Global.showFeedBack() -> void`: Se crea una nueva escena que se muestra por encima del juego, es un espacio donde los usuarios pueden escribir sus impresiones del juego, dentro tiene un boton que los usuarios pueden apretar para cerrar la escena y seguir jugando. Es posible que no funcione durante una pausa (TO TEST).
+
+`Global.hideFeedBack() -> void`: Fuerza el cerrado de la escena de feedback.
+
+`Global.closeGame() -> void`: Se cierra el juego y se vuelve al selector de juegos cerrando la aplicación.
 
 ## Limitaciones
 
